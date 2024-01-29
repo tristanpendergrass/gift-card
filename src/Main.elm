@@ -21,7 +21,6 @@ main =
 
 dayLength : Float
 dayLength =
-    -- 1000 * 30
     1000 * 30
 
 
@@ -31,10 +30,10 @@ dayLength =
 
 type Tag
     = Plate
-    | Spoon
-    | Fork
-    | Knife
+    | Cutlery
+    | Napkins
     | Cup
+    | Decor
 
 
 tagToString : Tag -> String
@@ -43,17 +42,17 @@ tagToString tag =
         Plate ->
             "Plate"
 
-        Spoon ->
-            "Spoon"
+        Cutlery ->
+            "Cutlery"
 
-        Fork ->
-            "Fork"
-
-        Knife ->
-            "Knife"
+        Napkins ->
+            "Napkins"
 
         Cup ->
             "Cup"
+
+        Decor ->
+            "Decor"
 
 
 tagToStringPlural : Tag -> String
@@ -62,21 +61,22 @@ tagToStringPlural tag =
         Plate ->
             "Plates"
 
-        Spoon ->
-            "Spoons"
+        Cutlery ->
+            "Cutlery"
 
-        Fork ->
-            "Forks"
-
-        Knife ->
-            "Knives"
+        Napkins ->
+            "Napkins"
 
         Cup ->
             "Cups"
 
+        Decor ->
+            "Decor"
+
 
 type alias Item =
     { name : String
+    , img : String
     , price : Int
     , value : Int
     , tags : List Tag
@@ -101,34 +101,161 @@ type ShelfItem
 
 item1 : Item
 item1 =
-    { name = "Plate"
-    , price = 100
-    , value = 100
+    { name = "Plebb plate"
+    , img = "/plate_basic.png"
+    , price = 50
+    , value = 50
     , tags = [ Plate ]
     }
 
 
 otherItems : List Item
 otherItems =
-    [ { name = "Spoon"
-      , price = 50
-      , value = 50
-      , tags = [ Spoon ]
+    [ { name = "Plebb cutlery set"
+      , img = "/cutlery_basic.png"
+      , price = 65
+      , value = 65
+      , tags = [ Cutlery ]
       }
-    , { name = "Fork"
-      , price = 50
-      , value = 50
-      , tags = [ Fork ]
-      }
-    , { name = "Knife"
-      , price = 50
-      , value = 50
-      , tags = [ Knife ]
-      }
-    , { name = "Cup"
-      , price = 50
-      , value = 50
+    , { name = "Plebb cup"
+      , img = "/cup_basic.png"
+      , price = 25
+      , value = 25
       , tags = [ Cup ]
+      }
+    , { name = "Plebb napkins"
+      , img = "/napkins_basic.png"
+      , price = 35
+      , value = 35
+      , tags = [ Napkins ]
+      }
+    , { name = "Floral plate"
+      , img = "/plate_flower.png"
+      , price = 75
+      , value = 65
+      , tags = [ Plate ]
+      }
+    , { name = "Floral cutlery set"
+      , img = "/cutlery_flower.png"
+      , price = 100
+      , value = 80
+      , tags = [ Cutlery ]
+      }
+    , { name = "Floral cup"
+      , img = "/cup_flower.png"
+      , price = 40
+      , value = 30
+      , tags = [ Cup ]
+      }
+    , { name = "Floral napkins"
+      , img = "/napkins_flower.png"
+      , price = 50
+      , value = 40
+      , tags = [ Napkins ]
+      }
+    , { name = "Gold Star plate"
+      , img = "/plate_star.png"
+      , price = 150
+      , value = 200
+      , tags = [ Plate ]
+      }
+    , { name = "Gold Star cutlery set"
+      , img = "/cutlery_star.png"
+      , price = 200
+      , value = 260
+      , tags = [ Cutlery ]
+      }
+    , { name = "Gold Star cup"
+      , img = "/cup_star.png"
+      , price = 75
+      , value = 100
+      , tags = [ Cup ]
+      }
+    , { name = "Gold Star napkins"
+      , img = "/napkins_star.png"
+      , price = 100
+      , value = 140
+      , tags = [ Napkins ]
+      }
+    , { name = "Books"
+      , img = "/decor_books.png"
+      , price = 80
+      , value = 100
+      , tags = [ Decor ]
+      }
+    , { name = "Cactus"
+      , img = "/decor_cactus.png"
+      , price = 50
+      , value = 60
+      , tags = [ Decor ]
+      }
+    , { name = "Candle"
+      , img = "/decor_candle.png"
+      , price = 40
+      , value = 50
+      , tags = [ Decor ]
+      }
+    , { name = "Charcuterie board"
+      , img = "/decor_charcuterie_board.png"
+      , price = 100
+      , value = 120
+      , tags = [ Decor ]
+      }
+
+    -- , { name = "Coasters"
+    --   , img = "/decor_coasters.png"
+    --   , price = 30
+    --   , value = 40
+    --   , tags = [ Decor ]
+    --   }
+    , { name = "Flower vase"
+      , img = "/decor_flower_vase.png"
+      , price = 40
+      , value = 50
+      , tags = [ Decor ]
+      }
+    , { name = "Fruit bowl"
+      , img = "/decor_fruit_bowl.png"
+      , price = 50
+      , value = 60
+      , tags = [ Decor ]
+      }
+    , { name = "Painting"
+      , img = "/decor_painting.png"
+      , price = 80
+      , value = 100
+      , tags = [ Decor ]
+      }
+    , { name = "Picture"
+      , img = "/decor_picture.png"
+      , price = 40
+      , value = 50
+      , tags = [ Decor ]
+      }
+
+    -- , { name = "Place mat"
+    --   , img = "/decor_place_mat.png"
+    --   , price = 30
+    --   , value = 40
+    --   , tags = [ Decor ]
+    --   }
+    -- , { name = "Platter"
+    --   , img = "/decor_platter.png"
+    --   , price = 50
+    --   , value = 60
+    --   , tags = [ Decor ]
+    --   }
+    , { name = "Rubik's cube"
+      , img = "/decor_rubiks_cube.png"
+      , price = 30
+      , value = 40
+      , tags = [ Decor ]
+      }
+    , { name = "Tablecloth"
+      , img = "/decor_tablecloth.png"
+      , price = 40
+      , value = 50
+      , tags = [ Decor ]
       }
     ]
 
@@ -139,7 +266,7 @@ type alias Requirement =
 
 defaultRequirements : List Requirement
 defaultRequirements =
-    [ ( 2, Plate ), ( 1, Spoon ), ( 1, Fork ), ( 1, Knife ) ]
+    [ ( 4, Plate ), ( 4, Cutlery ), ( 4, Cup ), ( 1, Napkins ) ]
 
 
 requirementMet : Model -> Requirement -> Bool
@@ -173,7 +300,7 @@ itemGenerator =
 
 shelfGenerator : Random.Generator (List ShelfItem)
 shelfGenerator =
-    Random.list 8 itemGenerator
+    Random.list 4 itemGenerator
         |> Random.map (List.map ShelfItem)
 
 
@@ -201,6 +328,7 @@ type Msg
     | HandleKeyDown Key
     | Purchase Int -- purchase the item at that index on the shelf
     | NextShelf
+    | HandleStart
 
 
 attemptPurchaseItem : { shelf : List ShelfItem, index : Int, playerMoney : Int } -> { shelf : List ShelfItem, playerMoney : Int, purchases : List Item }
@@ -301,6 +429,9 @@ update msg model =
                     Random.step shelfGenerator model.seed
             in
             ( { model | seed = newSeed, shelf = newShelf }, Cmd.none )
+
+        HandleStart ->
+            ( { model | started = True }, Cmd.none )
 
 
 
@@ -439,25 +570,83 @@ subscriptions model =
 -- VIEW
 
 
+shopItemImage : String -> List Tag -> Html Msg
+shopItemImage itemImageSrc tags =
+    div [ class "avatar" ]
+        [ div [ class "w-36 rounded-lg border-2 border-primary relative" ]
+            [ img [ src itemImageSrc ] []
+            , div [ class "absolute bottom-0 right-0 flex p-1 gap-1" ]
+                (List.map
+                    (\tag ->
+                        div
+                            [ class "badge"
+                            , classList
+                                [ ( "badge-accent", List.member tag [ Plate, Napkins, Cutlery, Cup ] )
+                                , ( "badge-neutral", tag == Decor )
+                                ]
+                            ]
+                            [ text (tagToString tag) ]
+                    )
+                    tags
+                )
+            ]
+        ]
+
+
 renderShopItem : Model -> Int -> ShelfItem -> Html Msg
 renderShopItem model index shelfItem =
-    case shelfItem of
-        ShelfItem item ->
-            let
-                canAffordItem : Bool
-                canAffordItem =
-                    model.playerMoney >= item.price
-            in
-            div [ class "w-64 h-48 border-dashed rounded-xl border border-neutral shadow-xl flex flex-col gap-4 items-center p-4" ]
-                [ span [ class "text-sm" ] [ text item.name ]
-                , span [ class "text-4xl" ] [ text ("$" ++ String.fromInt item.price) ]
-                , button [ class "btn btn-primary", onClick (Purchase index), disabled (not canAffordItem) ] [ text "Purchase" ]
-                ]
+    let
+        shortcutLabel : String
+        shortcutLabel =
+            case index of
+                0 ->
+                    "1"
 
-        EmptyShelfItem ->
-            div [ class "w-64 h-48 border-dashed rounded-xl border border-neutral shadow-xl flex flex-col gap-4 items-center justify-center p-4" ]
-                [ span [ class "text-sm italic" ] [ text "Sold Out" ]
-                ]
+                1 ->
+                    "2"
+
+                2 ->
+                    "3"
+
+                3 ->
+                    "4"
+
+                4 ->
+                    "Shift + 1"
+
+                5 ->
+                    "Shift + 2"
+
+                6 ->
+                    "Shift + 3"
+
+                7 ->
+                    "Shift + 4"
+
+                _ ->
+                    ""
+    in
+    div [ class "flex flex-col items-center gap-1" ]
+        [ kbd [ class "kbd kbd-sm" ] [ text shortcutLabel ]
+        , case shelfItem of
+            ShelfItem item ->
+                let
+                    canAffordItem : Bool
+                    canAffordItem =
+                        model.playerMoney >= item.price
+                in
+                div [ class "w-64 border-dashed rounded-xl border border-neutral shadow flex flex-col gap-4 items-center p-4" ]
+                    [ shopItemImage item.img item.tags
+                    , span [ class "font-bold" ] [ text item.name ]
+                    , span [ class "text-4xl font-thin" ] [ text ("$" ++ String.fromInt item.price) ]
+                    , button [ class "btn btn-primary btn-sm", onClick (Purchase index), disabled (not canAffordItem) ] [ text "Purchase" ]
+                    ]
+
+            EmptyShelfItem ->
+                div [ class "w-64 h-[318px] border-dashed rounded-xl border border-neutral shadow flex flex-col gap-4 items-center justify-center p-4" ]
+                    [ span [ class "text-sm italic" ] [ text "Sold Out" ]
+                    ]
+        ]
 
 
 renderEndTimer : Model -> Html Msg
@@ -501,16 +690,24 @@ renderRequirements model requirements =
                     ]
             )
             requirements
+            ++ [ li
+                    [ class "flex gap-2 items-center"
+                    ]
+                    [ FeatherIcons.plus
+                        |> FeatherIcons.toHtml []
+                    , span [ class "text-sm" ] [ text "Decor!" ]
+                    ]
+               ]
         )
 
 
-renderBagContents : Model -> Html Msg
-renderBagContents model =
-    table [ class "table table-sm" ]
+renderBagContents : Model -> Bool -> Html Msg
+renderBagContents model showValue =
+    table [ class "table table-sm", classList [ ( "hidden", List.isEmpty model.purchases ) ] ]
         [ tbody []
             (List.concat
                 [ [ tr []
-                        [ th [] [ text "" ]
+                        [ th [] [ text "Purchases" ]
                         , th [] [ text "Value" ]
                         ]
                   ]
@@ -518,7 +715,13 @@ renderBagContents model =
                     (\item ->
                         tr []
                             [ td [] [ text item.name ]
-                            , td [ class "text-success font-semibold" ] [ text (String.fromInt item.value) ]
+                            , td [ class "text-success font-semibold" ]
+                                [ if showValue then
+                                    text (String.fromInt item.value)
+
+                                  else
+                                    text ""
+                                ]
                             ]
                     )
                     model.purchases
@@ -547,16 +750,12 @@ renderBagPreview model =
 
 renderBag : Model -> List Requirement -> Html Msg
 renderBag model requirements =
-    div [ class "flex flex-col gap-4 items-center bg-neutral text-neutral-content p-4 w-[25rem]" ]
-        [ div [ class "text-xl font-bold" ] [ span [] [ text "Shopping Bag" ] ]
+    div [ class "h-[1024px] max-h-full overflow-y-auto flex flex-col gap-4 items-center bg-base-300 p-4 w-[25rem] rounded" ]
+        [ div [ class "text-xl font-bold" ] [ span [] [ text "Shopping list" ] ]
         , div [ class "flex gap-2 w-full justify-start" ]
             [ div [ class "w-[10rem]" ] [ renderRequirements model requirements ]
             , div [ class "divider divider-horizontal mx-2" ] []
-            , if model.endTimer > 0 then
-                renderBagPreview model
-
-              else
-                renderBagContents model
+            , renderBagContents model (model.endTimer <= 0)
             ]
         ]
 
@@ -564,44 +763,72 @@ renderBag model requirements =
 renderScore : Model -> List Requirement -> Html Msg
 renderScore model requirements =
     let
-        scoreEnabled : Bool
-        scoreEnabled =
-            requirementsMet model requirements
+        gameOver : Bool
+        gameOver =
+            model.endTimer
+                <= 0
+                && model.started
+
+        showScore : Bool
+        showScore =
+            -- requirementsMet model requirements
+            True
 
         score : Int
         score =
             getScore model.purchases
     in
-    div [ class "flex flex-col gap-4 items-center w-full" ]
-        [ span [] [ text "Score" ]
-        , div [ class "flex gap-2" ]
-            [ input [ type_ "checkbox", checked (requirementsMet model requirements), class "checkbox checkbox-primary" ] []
-            , span [] [ text "All required items in bag" ]
+    -- div [ class "flex flex-col gap-4 items-center w-full", classList [ ( "hidden", not gameOver ) ] ]
+    div [ class "flex flex-col gap-4 items-center w-full pt-24" ]
+        [ span [ class "text-2xl fade-in-up" ] [ text "Evaluation" ]
+        , hr [ class "divider divider-horizontal w-full divider-neutral" ] []
+        , div [ classList [ ( "hidden", showScore ) ], class "flex flex-col w-full items-center fade-in-up" ]
+            [ span [ class "text-4xl font-bold text-error" ] [ text "Failure" ]
+            , span [] [ text "You failed to purchase all required items!" ]
             ]
-        , if scoreEnabled then
-            div [] [ text (String.fromInt score) ]
-
-          else
-            div [] [ text "You must acquire all required items to score points" ]
+        , div [ classList [ ( "hidden", not showScore ) ], class "flex flex-col w-full items-center gap-4" ]
+            [ span [ class "text-4xl font-bold text-success" ] [ text "Success!" ]
+            , span [ class "text-2xl font-bold" ] [ text <| "Score: " ++ String.fromInt score ]
+            , span [] [ text "(sum of value of all purchases)" ]
+            ]
         ]
 
 
 view : Model -> Html Msg
 view model =
-    div [ class "flex flex-col gap-4 items-start p-6 w-full" ]
+    let
+        shelfEmpty : Bool
+        shelfEmpty =
+            List.all (\item -> item == EmptyShelfItem) model.shelf
+    in
+    div [ class "flex flex-col gap-4 items-start p-6 w-screen h-screen", attribute "data-theme" "corporate" ]
         [ span [ class "text-4xl underline" ] [ text "Gift Card" ]
         , div [ class "flex gap-4 w-full" ]
             [ div [ class "flex flex-col gap-4 items-start relative" ]
-                [ div [ class "w-64 h-36 rounded bg-info text-info-content border border-neutral shadow-xl flex flex-col gap-2 items-center p-4" ]
-                    [ span [ class "font-thin" ] [ text "Crate and Barrel" ]
-                    , span [ class "text-sm font-semibold" ] [ text "remaining value" ]
-                    , span [ class "text-4xl" ] [ text ("$" ++ String.fromInt model.playerMoney) ]
+                [ div [ class "flex w-full justify-center gap-4 items-center p-4" ]
+                    [ div [ class "w-64 h-36 rounded bg-info text-info-content border border-neutral shadow-xl flex flex-col gap-2 items-center p-4" ]
+                        [ span [ class "font-thin" ] [ text "Crate and Barrel" ]
+                        , span [ class "text-sm font-semibold" ] [ text "remaining value" ]
+                        , span [ class "text-4xl" ] [ text ("$" ++ String.fromInt model.playerMoney) ]
+                        ]
+                    , button [ class "btn btn-primary", onClick HandleStart ] [ text "Start" ]
                     ]
                 , div [ class "flex flex-col gap-4 items-center" ]
                     [ div [ class "flex gap-2 items-center" ]
-                        [ div [ class "rounded bg-base-200 grid grid-cols-4 grid-rows-2 gap-4 p-4" ]
+                        [ div [ class "rounded bg-base-200 grid grid-cols-4 grid-rows gap-4 gap-y-16 p-8 pb-12" ]
                             (List.indexedMap (renderShopItem model) model.shelf)
-                        , button [ class "btn btn-neutral", onClick NextShelf ] [ text "Next Shelf" ]
+                        , button
+                            [ class "btn"
+                            , onClick NextShelf
+                            , class "relative"
+                            ]
+                            [ text "Next Shelf"
+                            , span
+                                [ class " flex h-3 w-3 absolute top-0 right-0", classList [ ( "hidden", not shelfEmpty ) ] ]
+                                [ span [ class "animate-ping absolute inline-flex h-full w-full rounded-full bg-info opacity-75" ] []
+                                , span [ class "relative inline-flex rounded-full h-3 w-3 bg-info" ] []
+                                ]
+                            ]
                         ]
 
                     -- End timer
